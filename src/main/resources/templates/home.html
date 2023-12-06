@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Jwitter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-screen">
+    <div class="mx-auto flex h-screen w-full max-w-xs border-x border-black md:max-w-6xl">
+        <div class="flex w-[500px] flex-col justify-between border-r border-black px-4 py-5">
+            <span class="font-mono">Jwitter.</span>
+            <div>
+                <div class="flex gap-2 items-center">
+                    <img src="https://github.com/aayushbtw.png" alt="pfp" class="h-6 w-6 rounded-full" />
+                    <span class="text-sm font-medium">@aayushbtw</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-y-3 px-4 py-5">
+            <form th:action="@{/post/add}" method="post" th:object="${post}">
+                <label>
+                    <input th:field="*{author}" th:value="aayushbtw" type="hidden" />
+                </label>
+                <label>
+                <textarea id="body"
+                          name="body"
+                          th:field="*{body}"
+                          placeholder="What is on your mind?"
+                          class="resize-none w-full border border-black rounded-lg text-sm p-3">
+                </textarea>
+                </label>
+                <button type="submit" class="text-sm float-right text-white bg-blue-600 font-bold rounded-lg h-9 px-4 py-2">Post</button>
+            </form>
+<!--            <form th:action="@{/post/add}" method="post">-->
+<!--                <label>-->
+<!--                    <input th:field="*{author}" i />-->
+<!--                </label>-->
+<!--                <label>-->
+<!--                    <textarea-->
+<!--                            th:field="{body}"-->
+<!--                            placeholder="What is on your mind?" class="resize-none w-full border border-black rounded-lg text-sm p-3"-->
+<!--                    ></textarea>-->
+<!--                </label>-->
+<!--                <button class="text-sm float-right text-white bg-blue-600 font-bold rounded-lg h-9 px-4 py-2">Post</button>-->
+<!--            </form>-->
+            <div class="border border-black p-3 rounded-lg">
+                <!--Card            -->
+                <div class="flex gap-x-2">
+                    <img src="https://github.com/aayushbtw.png" alt="pfp" class="h-6 w-6 rounded-full" />
+                    <div>
+                        <div class="flex h-6 flex-row items-center gap-x-1">
+                            <span class="text-sm font-medium">@aayushbtw</span>
+                            <span>·</span>
+                            <span class="text-xs font-light">Posted 2h ago</span>
+                        </div>
+                        <p class="text-[15px]">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia animi beatae dolores odio nostrum eligendi sequi officiis incidunt cum laudantium, deserunt consequatur autem explicabo, fugit asperiores adipisci! Porro, accusamus vitae.
+                        </p>
+                    </div>
+                </div>
+                <!--/ Card            -->
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
